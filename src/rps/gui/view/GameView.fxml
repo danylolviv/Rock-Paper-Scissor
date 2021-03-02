@@ -7,52 +7,53 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #0E9594;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #127475;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0" />
-            <Pane prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #F5DFBB; -fx-background-radius: 5;">
-               <children>
-                  <Label layoutX="25.0" layoutY="17.0" text="Game History" textFill="#127475">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </children></AnchorPane>
-      <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #F5DFBB; -fx-background-radius: 70;" />
-            <Pane layoutX="71.0" layoutY="427.0" prefHeight="202.0" prefWidth="179.0">
-               <children>
-                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Label alignment="CENTER" layoutX="3.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Rock" textFill="#f5dfbb">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font></Label>
-               </children>
-            </Pane>
-            <Pane layoutX="317.0" layoutY="427.0" prefHeight="202.0" prefWidth="179.0">
-               <children>
-                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Paper" textFill="#f5dfbb">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font></Label>
-               </children>
-            </Pane>
-            <Pane layoutX="558.0" layoutY="427.0" prefHeight="202.0" prefWidth="179.0">
-               <children>
-                  <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css" />
-                  <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Scissor" textFill="#f5dfbb">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font></Label>
-               </children>
-            </Pane>
-         </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0"
+            prefWidth="1087.0" style="-fx-background-color: #0E9594;" xmlns="http://javafx.com/javafx/15.0.1">
+   <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #127475;" AnchorPane.bottomAnchor="0.0"
+               AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0"
+            AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0"/>
+      <Pane prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #F5DFBB; -fx-background-radius: 5;">
+         <Label layoutX="25.0" layoutY="17.0" text="Game History" textFill="#127475">
+            <font>
+               <Font name="System Bold" size="18.0"/>
+            </font>
+         </Label>
       </Pane>
-   </children>
+   </AnchorPane>
+   <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0"
+         AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6"
+            style="-fx-background-color: #F5DFBB; -fx-background-radius: 70;"/>
+      <Pane layoutX="71.0" layoutY="427.0" prefHeight="202.0" prefWidth="179.0">
+         <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2"
+                 stylesheets="@../css/fullpackstyling.css"/>
+         <Label alignment="CENTER" layoutX="3.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Rock"
+                textFill="#f5dfbb">
+            <font>
+               <Font name="Arial Bold" size="18.0"/>
+            </font>
+         </Label>
+      </Pane>
+      <Pane layoutX="317.0" layoutY="427.0" prefHeight="202.0" prefWidth="179.0">
+         <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2"
+                 stylesheets="@../css/fullpackstyling.css"/>
+         <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Paper"
+                textFill="#f5dfbb">
+            <font>
+               <Font name="Arial Bold" size="18.0"/>
+            </font>
+         </Label>
+      </Pane>
+      <Pane layoutX="558.0" layoutY="427.0" prefHeight="202.0" prefWidth="179.0">
+         <Button mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2"
+                 stylesheets="@../css/fullpackstyling.css"/>
+         <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0"
+                text="Scissor" textFill="#f5dfbb">
+            <font>
+               <Font name="Arial Bold" size="18.0"/>
+            </font>
+         </Label>
+      </Pane>
+   </Pane>
 </AnchorPane>
