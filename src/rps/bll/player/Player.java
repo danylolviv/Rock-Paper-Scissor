@@ -1,12 +1,13 @@
 package rps.bll.player;
 
 //Project imports
+
 import rps.bll.game.IGameState;
 import rps.bll.game.Move;
 import rps.bll.game.Result;
 
-//Java imports
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Example implementation of a player.
@@ -50,6 +51,20 @@ public class Player implements IPlayer {
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
 
         //Implement better AI here...
-        return Move.Rock;
+
+        // DANYLO Code Starts
+        int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
+        if (randomNum == 1){
+            return Move.Rock;
+        }else if(randomNum == 2){
+            return Move.Paper;
+        }else if(randomNum == 3){
+            return Move.Scissor;
+        }else {
+            return Move.Rock;
+        }
+            // DANYLO Code Finishes
+
+        //return Move.Rock;
     }
 }
