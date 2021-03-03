@@ -75,6 +75,11 @@
          <children>
             <Pane fx:id="userPane" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
+                  <ImageView fx:id="yourPick" fitHeight="150.0" fitWidth="200.0" layoutY="-60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/yourPick.png" />
+                     </image>
+                  </ImageView>
                   <ImageView fx:id="userScissor" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/scissorsPick.png" />
@@ -92,9 +97,27 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="aiPane" layoutX="381.0" prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="aiPane" layoutX="381.0" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="aiPick" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/AiPick.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="aiPaper" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/AIPaperPick.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="aiRock" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/AIrockPick.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="aiScissor" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/AIscissorsPick.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             <Pane fx:id="vsPane" layoutX="191.0" prefHeight="200.0" prefWidth="200.0" visible="false">

@@ -38,7 +38,10 @@ public class JavaFXApp extends Application {
     private ImageView userRock;
 
     @FXML
-    private Text aiPicked;
+    private ImageView aiPick;
+
+    @FXML
+    private ImageView yourPick;
 
     @FXML
     private Pane userPane;
@@ -48,6 +51,15 @@ public class JavaFXApp extends Application {
 
     @FXML
     private Pane vsPane;
+
+    @FXML
+    private ImageView aiPaper;
+
+    @FXML
+    private ImageView aiRock;
+
+    @FXML
+    private ImageView aiScissor;
 
     private static GameManager ge;
 
@@ -105,6 +117,7 @@ public class JavaFXApp extends Application {
         userPaper.setVisible(false);
         userScissor.setVisible(false);
         vsPane.setVisible(true);
+        yourPick.setVisible(true);
         playerMove(Move.Rock);
     }
 
@@ -114,6 +127,7 @@ public class JavaFXApp extends Application {
         userPaper.setVisible(true);
         userScissor.setVisible(false);
         vsPane.setVisible(true);
+        yourPick.setVisible(true);
         playerMove(Move.Paper);
     }
 
@@ -123,14 +137,38 @@ public class JavaFXApp extends Application {
         userPaper.setVisible(false);
         userScissor.setVisible(true);
         vsPane.setVisible(true);
+        yourPick.setVisible(true);
         playerMove(Move.Scissor);
+    }
+    public void aiRockHandle() {
+        aiPane.setVisible(true);
+        aiRock.setVisible(true);
+        aiPaper.setVisible(false);
+        aiPick.setVisible(true);
+        aiScissor.setVisible(false);
+    }
+
+    public void aiPaperHandle() {
+        aiPane.setVisible(true);
+        aiRock.setVisible(false);
+        aiPaper.setVisible(true);
+        aiPick.setVisible(true);
+        aiScissor.setVisible(false);
+    }
+
+    public void aiScissorsHandle() {
+        aiPane.setVisible(true);
+        aiRock.setVisible(false);
+        aiPaper.setVisible(false);
+        aiPick.setVisible(true);
+        aiScissor.setVisible(true);
     }
 
     public void displayIconAI(Move move){
         switch (move) {
-            case Rock -> System.out.println("ai chose rock");//Rock display code
-            case Paper -> System.out.println("ai chose Paper");//Paper display code
-            case Scissor -> System.out.println("ai chose Scissors");//Scissors display code
+            case Rock -> aiRockHandle();//Rock display code
+            case Paper -> aiPaperHandle();//Paper display code
+            case Scissor -> aiScissorsHandle();//Scissors display code
         }
         //Godspeed Marco boi
     }
