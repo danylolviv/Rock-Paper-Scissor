@@ -49,57 +49,32 @@ public class JavaFXApp extends Application {
     @FXML
     private Pane vsPane;
 
+    private static GameManager ge;
+
 
     public static void launch() {
-        Application.launch();
-
         IPlayer human = new Player("User", PlayerType.Human);
         IPlayer bot = new Player("AI", PlayerType.AI);
 
-        GameManager ge = new GameManager(human, bot);
+        ge = new GameManager(human, bot);
 
-        while (true) {
-            String playerMove = getPlayerMove();
-
-            if (playerMove.equalsIgnoreCase("exit"))
-                break;
-
-            ge.playRound(Move.valueOf(playerMove));
-
-            ge.getGameState().getHistoricResults().forEach((result) -> {
-                System.out.println(getResultAsString(result));
-            });
-        }
+        Application.launch();
     }
 
+    public static void playerMove(Move move){
+        ge.playRound(move);
 
-    public static String getPlayerMove() {
-        Scanner keyboard = new Scanner(System.in);
-        String input;
-        boolean inputOK;
-
-        do {
-            inputOK = false;
-            System.out.println();
-            System.out.print("Choose Your Weapon (Rock/R, Paper/P or Scissor/S) or Exit/E to quit the game: ");
-            input = keyboard.next();
-
-            if (input.equalsIgnoreCase("rock") || input.equalsIgnoreCase("r") ||
-                    input.equalsIgnoreCase("paper") || input.equalsIgnoreCase("p") ||
-                    input.equalsIgnoreCase("scissor") || input.equalsIgnoreCase("s") ||
-                    input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("e")) {
-                inputOK = true;
-
-                if (input.equalsIgnoreCase("r")) { input = "Rock"; }
-                else if (input.equalsIgnoreCase("p")) { input = "Paper"; }
-                else if (input.equalsIgnoreCase("s")) { input = "Scissor"; }
-                else if (input.equalsIgnoreCase("e")) { input = "Exit"; }
-            }
-            else { System.out.println("Invalid input. Try again :)"); }
+        //TODO
+        //put this shit into a list as history
+        ge.getGameState().getHistoricResults().forEach((result) -> {
+            System.out.println(getResultAsString(result));
+        });
+        //TODO
+        //use this info to add a bot icon
+        if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI) {
+            ge.getLastResult().getWinnerMove(); // AI's choice
         }
-        while (!inputOK);
-
-        return input;
+        else ge.getLastResult().getLoserMove(); // AI's choice
     }
 
     public static String getResultAsString(Result result) {
@@ -121,27 +96,32 @@ public class JavaFXApp extends Application {
         stage.setResizable(false);
         stage.show();
     }
-    public void rockHandle(javafx.event.ActionEvent actionEvent) {
+    public void rockHandle() {
         userPane.setVisible(true);
         userRock.setVisible(true);
         userPaper.setVisible(false);
         userScissor.setVisible(false);
         vsPane.setVisible(true);
+        playerMove(Move.Rock);
     }
 
-    public void paperHandle(javafx.event.ActionEvent actionEvent) {
+    public void paperHandle() {
         userPane.setVisible(true);
         userRock.setVisible(false);
         userPaper.setVisible(true);
         userScissor.setVisible(false);
         vsPane.setVisible(true);
+        playerMove(Move.Paper);
     }
 
-    public void scissorsHandle(javafx.event.ActionEvent actionEvent) {
+    public void scissorsHandle() {
         userPane.setVisible(true);
         userRock.setVisible(false);
         userPaper.setVisible(false);
         userScissor.setVisible(true);
         vsPane.setVisible(true);
+        playerMove(Move.Scissor);
     }
+
+
 }

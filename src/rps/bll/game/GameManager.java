@@ -58,9 +58,18 @@ public class GameManager {
 
     /**
      *
-     * @return
+     * @return The state of the game
      */
     public IGameState getGameState() {
         return gameState;
+    }
+
+
+    public Result getLastResult(){
+        Result lastResult = null;
+        for (Result result : getGameState().getHistoricResults()) {
+            lastResult = result;
+        }
+        return lastResult;
     }
 }
