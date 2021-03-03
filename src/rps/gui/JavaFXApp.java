@@ -61,7 +61,7 @@ public class JavaFXApp extends Application {
         Application.launch();
     }
 
-    public static void playerMove(Move move){
+    public void playerMove(Move move){
         ge.playRound(move);
 
         //TODO
@@ -71,10 +71,13 @@ public class JavaFXApp extends Application {
         });
         //TODO
         //use this info to add a bot icon
+        Move aiMove;
         if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI) {
-            ge.getLastResult().getWinnerMove(); // AI's choice
+            aiMove = ge.getLastResult().getWinnerMove(); // AI's choice
         }
-        else ge.getLastResult().getLoserMove(); // AI's choice
+        else aiMove = ge.getLastResult().getLoserMove(); // AI's choice
+
+        displayIconAI(aiMove);
     }
 
     public static String getResultAsString(Result result) {
@@ -123,5 +126,13 @@ public class JavaFXApp extends Application {
         playerMove(Move.Scissor);
     }
 
+    public void displayIconAI(Move move){
+        switch (move) {
+            case Rock -> System.out.println("ai chose rock");//Rock display code
+            case Paper -> System.out.println("ai chose Paper");//Paper display code
+            case Scissor -> System.out.println("ai chose Scissors");//Scissors display code
+        }
+        //Godspeed Marco boi
+    }
 
 }
