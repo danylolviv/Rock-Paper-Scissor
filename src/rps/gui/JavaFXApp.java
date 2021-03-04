@@ -6,15 +6,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 import rps.bll.game.*;
 import rps.bll.player.*;
+import rps.bll.game.GameManager;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -70,8 +76,14 @@ public class JavaFXApp extends Application {
     @FXML
     private Pane tied;
 
+    @FXML
+    private ScrollPane scrollPane;
+
     private static GameManager ge;
 
+    private final TilePane tilePaneClass = new TilePane();
+
+    GameState gameState;
 
     public static void launch() {
         IPlayer human = new Player("User", PlayerType.Human);
@@ -88,8 +100,13 @@ public class JavaFXApp extends Application {
         //TODO
         //put this shit into a list as history
         ge.getGameState().getHistoricResults().forEach((result) -> {
-            System.out.println(getResultAsString(result));
+            javafx.scene.control.Label lblContent = new javafx.scene.control.Label(getResultAsString(result));
+            VBox vbox = new VBox();
+            vbox.getChildren().add(lblContent);
+            tilePaneClass.getChildren().add(vbox);
+            scrollPane.setContent(tilePaneClass);
         });
+
 
         Move aiMove;
         if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI) {
@@ -101,14 +118,12 @@ public class JavaFXApp extends Application {
 
     }
 
+
     public static String getResultAsString(Result result) {
         String statusText = result.getType() == ResultType.Win ? "wins over " : "ties ";
 
-        return "Round #" + result.getRoundNumber() + ":" +
-                result.getWinnerPlayer().getPlayerName() +
-                " (" + result.getWinnerMove() + ") " +
-                statusText + result.getLoserPlayer().getPlayerName() +
-                " (" + result.getLoserMove() + ")!";
+        return "Round #" + result.getRoundNumber() + ":" + result.getWinnerPlayer().getPlayerName() + " (" + result.getWinnerMove() + ") " + statusText + result.getLoserPlayer().getPlayerName() + " (" + result.getLoserMove() + ")!";
+
     }
 
     @Override
@@ -137,6 +152,22 @@ public class JavaFXApp extends Application {
             tied.setVisible(false);
         }
 
+    }
+    int aiHighscore = 0;
+    int userHighscore = 0;
+    public void highscore(){
+
+        if (ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI) {
+            aiHighscore = aiHighscore+1;
+        } else if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.Human){
+            userHighscore = userHighscore+1;
+        } else if (ge.getLastResult().getWinnerMove()==ge.getLastResult().getLoserMove()){
+            aiHighscore = aiHighscore+0;
+            userHighscore = userHighscore+0;
+        }
+
+        System.out.println(aiHighscore);
+        System.out.println(userHighscore);
     }
 
     public void rockHandle() {
@@ -178,6 +209,8 @@ public class JavaFXApp extends Application {
         aiPick.setVisible(true);
         aiScissor.setVisible(false);
         winnerAnnouncement();
+        highscore();
+
     }
 
     public void aiPaperHandle() {
@@ -187,6 +220,8 @@ public class JavaFXApp extends Application {
         aiPick.setVisible(true);
         aiScissor.setVisible(false);
         winnerAnnouncement();
+        highscore();
+
     }
 
     public void aiScissorsHandle() {
@@ -196,6 +231,8 @@ public class JavaFXApp extends Application {
         aiPick.setVisible(true);
         aiScissor.setVisible(true);
         winnerAnnouncement();
+        highscore();
+
     }
 
     public void displayIconAI(Move move){
