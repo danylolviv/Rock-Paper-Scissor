@@ -13,10 +13,10 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #0E9594;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.JavaFXApp">
-   <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #127475;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <VBox fillWidth="false" layoutY="56.0" prefHeight="594.0" prefWidth="262.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="56.0">
+   <AnchorPane prefHeight="649.0" prefWidth="260.0" style="-fx-background-color: #127475;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fillWidth="false" layoutY="61.0" prefHeight="589.0" prefWidth="262.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="61.0">
          <children>
-            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="594.0" prefWidth="263.0" vbarPolicy="ALWAYS" />
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="589.0" prefWidth="272.0" style="-fx-background-color: #127475;" styleClass="viewport" stylesheets="@../css/fullpackstyling.css" vbarPolicy="ALWAYS" />
          </children></VBox>
       <Pane prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #F5DFBB; -fx-background-radius: 5;">
          <Label layoutX="25.0" layoutY="17.0" text="Game History" textFill="#127475">
