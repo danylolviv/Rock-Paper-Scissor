@@ -27,31 +27,40 @@
       </Pane>
    </AnchorPane>
    <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
-      <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #F5DFBB; -fx-background-radius: 70;">
+      <Pane layoutX="207.0" layoutY="10.0" prefHeight="100.0" prefWidth="388.0" style="-fx-background-color: #F5DFBB; -fx-background-radius: 70;">
          <children>
-            <Pane fx:id="userWon" layoutX="275.0" layoutY="268.0" prefHeight="200.0" prefWidth="206.0" visible="false">
+            <Pane fx:id="aiWon" layoutX="83.0" layoutY="66.0" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
-                  <Text fill="#0e9594" strokeType="OUTSIDE" strokeWidth="0.0" text="You Won!">
+                  <Text fill="#0e9594" strokeType="OUTSIDE" strokeWidth="0.0" text="The AI Won!" wrappingWidth="198.2890625">
                      <font>
                         <Font name="Arial Bold" size="34.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Pane fx:id="aiWon" layoutX="214.0" layoutY="142.0" prefHeight="200.0" prefWidth="200.0" visible="false">
-               <children>
-                  <Text fill="#0e9594" layoutX="21.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The AI Won!">
-                     <font>
-                        <Font name="Arial Bold" size="34.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-            <Pane fx:id="tied" layoutX="278.0" layoutY="268.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+            <Pane fx:id="tied" layoutX="127.0" layoutY="66.0" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
                   <Text fill="#0e9594" strokeType="OUTSIDE" strokeWidth="0.0" text="You Tied!">
                      <font>
                         <Font name="Arial Bold" size="34.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="userWon" prefHeight="200.0" prefWidth="206.0" visible="false">
+               <children>
+                  <Text fill="#0e9594" layoutX="123.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Won!">
+                     <font>
+                        <Font name="Arial Bold" size="34.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="welcome" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#0e9594" layoutX="58.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
+                     <font>
+                        <Font name="Arial Bold" size="61.0" />
                      </font>
                   </Text>
                </children>
@@ -105,7 +114,7 @@
             </image>
          </ImageView>
       </Pane>
-      <Pane layoutX="111.0" layoutY="213.0" prefHeight="200.0" prefWidth="581.0" stylesheets="@../css/fullpackstyling.css">
+      <Pane layoutX="112.0" layoutY="227.0" prefHeight="200.0" prefWidth="581.0" stylesheets="@../css/fullpackstyling.css">
          <children>
             <Pane fx:id="userPane" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
@@ -131,6 +140,15 @@
                   </ImageView>
                </children>
             </Pane>
+            <Pane fx:id="vsPane" layoutX="191.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/VS.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
             <Pane fx:id="aiPane" layoutX="381.0" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
                   <ImageView fx:id="aiPick" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true">
@@ -141,7 +159,8 @@
                   <ImageView fx:id="aiPaper" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/AIPaperPick.png" />
-                     </image></ImageView>
+                     </image>
+                  </ImageView>
                   <ImageView fx:id="aiRock" fitHeight="150.0" fitWidth="200.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/AIrockPick.png" />
@@ -154,13 +173,13 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="vsPane" layoutX="191.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+            <Pane fx:id="rps" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/VS.png" />
-                     </image>
-                  </ImageView>
+                  <Text fill="#f5dfbb" layoutX="-59.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rock Paper Scissors AI Ultimate" textAlignment="CENTER" wrappingWidth="699.79833984375">
+                     <font>
+                        <Font name="Arial Bold" size="69.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </children>
