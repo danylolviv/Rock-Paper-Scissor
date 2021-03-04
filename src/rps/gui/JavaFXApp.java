@@ -61,6 +61,12 @@ public class JavaFXApp extends Application {
     @FXML
     private ImageView aiScissor;
 
+    @FXML
+    private Pane aiWon;
+
+    @FXML
+    private Pane userWon;
+
     private static GameManager ge;
 
 
@@ -90,6 +96,7 @@ public class JavaFXApp extends Application {
         else aiMove = ge.getLastResult().getLoserMove(); // AI's choice
 
         displayIconAI(aiMove);
+
     }
 
     public static String getResultAsString(Result result) {
@@ -111,6 +118,17 @@ public class JavaFXApp extends Application {
         stage.setResizable(false);
         stage.show();
     }
+
+    public void winnerAnnouncement(){
+        if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI){
+            aiWon.setVisible(true);
+            userWon.setVisible(false); }
+
+        if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.Human){
+            aiWon.setVisible(false);
+            userWon.setVisible(true); }
+    }
+
     public void rockHandle() {
         userPane.setVisible(true);
         userRock.setVisible(true);
@@ -119,6 +137,7 @@ public class JavaFXApp extends Application {
         vsPane.setVisible(true);
         yourPick.setVisible(true);
         playerMove(Move.Rock);
+        winnerAnnouncement();
     }
 
     public void paperHandle() {
@@ -129,6 +148,7 @@ public class JavaFXApp extends Application {
         vsPane.setVisible(true);
         yourPick.setVisible(true);
         playerMove(Move.Paper);
+        winnerAnnouncement();
     }
 
     public void scissorsHandle() {
@@ -139,6 +159,7 @@ public class JavaFXApp extends Application {
         vsPane.setVisible(true);
         yourPick.setVisible(true);
         playerMove(Move.Scissor);
+        winnerAnnouncement();
     }
     public void aiRockHandle() {
         aiPane.setVisible(true);
