@@ -107,6 +107,7 @@ public class JavaFXApp extends Application {
         tilePaneClass.setStyle("-fx-background-color: transparent;"+"-fx-text-fill: #f5dfbb;");
         scrollPane.setStyle("-fx-background-color: transparent;"+"-fx-text-fill: #f5dfbb;");
         VBox vbox = new VBox();
+        lblContent.setStyle("-fx-text-fill: #FFFFFF");
         vbox.getChildren().add(lblContent);
         tilePaneClass.getChildren().add(vbox);
         scrollPane.setContent(tilePaneClass);
