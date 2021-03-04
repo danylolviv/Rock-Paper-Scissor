@@ -18,6 +18,7 @@ import rps.bll.game.*;
 import rps.bll.player.*;
 import rps.bll.game.GameManager;
 
+import javax.swing.text.html.CSS;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Random;
@@ -103,10 +104,13 @@ public class JavaFXApp extends Application {
         ge.playRound(move);
         ge.getLastResult();
         javafx.scene.control.Label lblContent = new javafx.scene.control.Label(getResultAsString(ge.getLastResult()));
+        tilePaneClass.setStyle("-fx-background-color: transparent;"+"-fx-text-fill: #f5dfbb;");
+        scrollPane.setStyle("-fx-background-color: transparent;"+"-fx-text-fill: #f5dfbb;");
         VBox vbox = new VBox();
         vbox.getChildren().add(lblContent);
         tilePaneClass.getChildren().add(vbox);
         scrollPane.setContent(tilePaneClass);
+
         Move aiMove;
         if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI) {
             aiMove = ge.getLastResult().getWinnerMove();
