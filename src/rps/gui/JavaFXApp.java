@@ -77,6 +77,12 @@ public class JavaFXApp extends Application {
     private Pane tied;
 
     @FXML
+    private Pane welcome;
+
+    @FXML
+    private Pane rps;
+
+    @FXML
     private ScrollPane scrollPane;
 
     private static GameManager ge;
@@ -169,6 +175,8 @@ public class JavaFXApp extends Application {
         userScissor.setVisible(false);
         vsPane.setVisible(true);
         yourPick.setVisible(true);
+        rps.setVisible(false);
+        welcome.setVisible(false);
         playerMove(Move.Rock);
 
     }
@@ -180,6 +188,8 @@ public class JavaFXApp extends Application {
         userScissor.setVisible(false);
         vsPane.setVisible(true);
         yourPick.setVisible(true);
+        rps.setVisible(false);
+        welcome.setVisible(false);
         playerMove(Move.Paper);
 
     }
@@ -191,6 +201,8 @@ public class JavaFXApp extends Application {
         userScissor.setVisible(true);
         vsPane.setVisible(true);
         yourPick.setVisible(true);
+        rps.setVisible(false);
+        welcome.setVisible(false);
         playerMove(Move.Scissor);
 
     }
