@@ -50,9 +50,28 @@ public class Player implements IPlayer {
         //Historic data to analyze and decide next move...
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
 
-        //Implement better AI here...
+        if(results.isEmpty() || results.get(results.size()-1).getLoserMove() == results.get(results.size()-1).getWinnerMove()) return danyloAI();
+        else return basicAI(results);
+    }
 
-        // DANYLO Code Starts
+    private Move basicAI(ArrayList<Result> results){
+        Result lastResult;
+        lastResult = results.get(results.size()-1);
+
+        if(lastResult.getWinnerPlayer().getPlayerType() == PlayerType.AI) {
+            return lastResult.getLoserMove();
+        }
+        else {
+            for (Move move:Move.values()) {
+                if(move != lastResult.getLoserMove() && move != lastResult.getWinnerMove()) {
+                    return move;
+                }
+            }
+        }
+        return Move.Rock;
+    }
+
+    private Move danyloAI(){
         int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
         if (randomNum == 1){
             return Move.Rock;
@@ -63,8 +82,5 @@ public class Player implements IPlayer {
         }else {
             return Move.Rock;
         }
-            // DANYLO Code Finishes
-
-        //return Move.Rock;
     }
 }
