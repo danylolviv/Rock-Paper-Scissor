@@ -67,6 +67,9 @@ public class JavaFXApp extends Application {
     @FXML
     private Pane userWon;
 
+    @FXML
+    private Pane tied;
+
     private static GameManager ge;
 
 
@@ -87,13 +90,12 @@ public class JavaFXApp extends Application {
         ge.getGameState().getHistoricResults().forEach((result) -> {
             System.out.println(getResultAsString(result));
         });
-        //TODO
-        //use this info to add a bot icon
+
         Move aiMove;
         if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI) {
-            aiMove = ge.getLastResult().getWinnerMove(); // AI's choice
+            aiMove = ge.getLastResult().getWinnerMove();
         }
-        else aiMove = ge.getLastResult().getLoserMove(); // AI's choice
+        else aiMove = ge.getLastResult().getLoserMove();
 
         displayIconAI(aiMove);
 
@@ -127,6 +129,14 @@ public class JavaFXApp extends Application {
         if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.Human){
             aiWon.setVisible(false);
             userWon.setVisible(true); }
+
+        if (ge.getLastResult().getWinnerMove()==ge.getLastResult().getLoserMove()){
+            tied.setVisible(true);
+            userWon.setVisible(false);
+        } else {
+            tied.setVisible(false);
+        }
+
     }
 
     public void rockHandle() {
@@ -137,7 +147,7 @@ public class JavaFXApp extends Application {
         vsPane.setVisible(true);
         yourPick.setVisible(true);
         playerMove(Move.Rock);
-        winnerAnnouncement();
+
     }
 
     public void paperHandle() {
@@ -148,7 +158,7 @@ public class JavaFXApp extends Application {
         vsPane.setVisible(true);
         yourPick.setVisible(true);
         playerMove(Move.Paper);
-        winnerAnnouncement();
+
     }
 
     public void scissorsHandle() {
@@ -159,7 +169,7 @@ public class JavaFXApp extends Application {
         vsPane.setVisible(true);
         yourPick.setVisible(true);
         playerMove(Move.Scissor);
-        winnerAnnouncement();
+
     }
     public void aiRockHandle() {
         aiPane.setVisible(true);
@@ -167,6 +177,7 @@ public class JavaFXApp extends Application {
         aiPaper.setVisible(false);
         aiPick.setVisible(true);
         aiScissor.setVisible(false);
+        winnerAnnouncement();
     }
 
     public void aiPaperHandle() {
@@ -175,6 +186,7 @@ public class JavaFXApp extends Application {
         aiPaper.setVisible(true);
         aiPick.setVisible(true);
         aiScissor.setVisible(false);
+        winnerAnnouncement();
     }
 
     public void aiScissorsHandle() {
@@ -183,15 +195,14 @@ public class JavaFXApp extends Application {
         aiPaper.setVisible(false);
         aiPick.setVisible(true);
         aiScissor.setVisible(true);
+        winnerAnnouncement();
     }
 
     public void displayIconAI(Move move){
         switch (move) {
-            case Rock -> aiRockHandle();//Rock display code
-            case Paper -> aiPaperHandle();//Paper display code
-            case Scissor -> aiScissorsHandle();//Scissors display code
+            case Rock -> aiRockHandle();
+            case Paper -> aiPaperHandle();
+            case Scissor -> aiScissorsHandle();
         }
-        //Godspeed Marco boi
     }
-
 }

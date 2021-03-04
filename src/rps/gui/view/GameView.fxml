@@ -43,6 +43,15 @@
                   </Text>
                </children>
             </Pane>
+            <Pane fx:id="tied" layoutX="278.0" layoutY="268.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Text fill="#0e9594" strokeType="OUTSIDE" strokeWidth="0.0" text="You Tied!">
+                     <font>
+                        <Font name="Arial Bold" size="34.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
          </children></Pane>
       <Pane layoutX="71.0" layoutY="427.0" prefHeight="190.0" prefWidth="168.0">
          <Button mnemonicParsing="false" onAction="#rockHandle" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@../css/fullpackstyling.css">
