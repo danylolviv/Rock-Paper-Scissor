@@ -98,6 +98,7 @@ public class JavaFXApp extends Application {
         ge.getLastResult();
         javafx.scene.control.Label lblContent = new javafx.scene.control.Label(getResultAsString(ge.getLastResult()));
         VBox vbox = new VBox();
+        lblContent.setStyle("-fx-text-fill: #FFFFFF");
         vbox.getChildren().add(lblContent);
         tilePaneClass.getChildren().add(vbox);
         scrollPane.setContent(tilePaneClass);
