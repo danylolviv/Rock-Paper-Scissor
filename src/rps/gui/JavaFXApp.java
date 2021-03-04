@@ -83,7 +83,6 @@ public class JavaFXApp extends Application {
 
     private final TilePane tilePaneClass = new TilePane();
 
-    GameState gameState;
 
     public static void launch() {
         IPlayer human = new Player("User", PlayerType.Human);
@@ -96,26 +95,18 @@ public class JavaFXApp extends Application {
 
     public void playerMove(Move move){
         ge.playRound(move);
-
-        //TODO
-        //put this shit into a list as history
-        ge.getGameState().getHistoricResults().forEach((result) -> {
-            javafx.scene.control.Label lblContent = new javafx.scene.control.Label(getResultAsString(result));
-            VBox vbox = new VBox();
-            vbox.getChildren().add(lblContent);
-            tilePaneClass.getChildren().add(vbox);
-            scrollPane.setContent(tilePaneClass);
-        });
-
-
+        ge.getLastResult();
+        javafx.scene.control.Label lblContent = new javafx.scene.control.Label(getResultAsString(ge.getLastResult()));
+        VBox vbox = new VBox();
+        vbox.getChildren().add(lblContent);
+        tilePaneClass.getChildren().add(vbox);
+        scrollPane.setContent(tilePaneClass);
         Move aiMove;
         if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.AI) {
             aiMove = ge.getLastResult().getWinnerMove();
         }
         else aiMove = ge.getLastResult().getLoserMove();
-
         displayIconAI(aiMove);
-
     }
 
 
