@@ -2,6 +2,7 @@ package rps.bll.player;
 
 //Project imports
 
+import rps.bll.MoveLogic;
 import rps.bll.game.IGameState;
 import rps.bll.game.Move;
 import rps.bll.game.Result;
@@ -49,38 +50,16 @@ public class Player implements IPlayer {
     public Move doMove(IGameState state) {
         //Historic data to analyze and decide next move...
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
+        /**
+         * Create instance of the net move logic and pass historic to it
+         * Call method on this class which returns the next move for the Ai
+         * @return Next move
+         */
 
-        if(results.isEmpty() || results.get(results.size()-1).getLoserMove() == results.get(results.size()-1).getWinnerMove()) return danyloAI();
-        else return basicAI(results);
+        MoveLogic moveLogic = new MoveLogic(results);
+        return moveLogic.getNextMove();
+        //return moveLogic.basicAI(results);
+        //return moveLogic.randomAI();
     }
 
-    private Move basicAI(ArrayList<Result> results){
-        Result lastResult;
-        lastResult = results.get(results.size()-1);
-
-        if(lastResult.getWinnerPlayer().getPlayerType() == PlayerType.AI) {
-            return lastResult.getLoserMove();
-        }
-        else {
-            for (Move move:Move.values()) {
-                if(move != lastResult.getLoserMove() && move != lastResult.getWinnerMove()) {
-                    return move;
-                }
-            }
-        }
-        return Move.Rock;
-    }
-
-    private Move danyloAI(){
-        int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-        if (randomNum == 1){
-            return Move.Rock;
-        }else if(randomNum == 2){
-            return Move.Paper;
-        }else if(randomNum == 3){
-            return Move.Scissor;
-        }else {
-            return Move.Rock;
-        }
-    }
 }
