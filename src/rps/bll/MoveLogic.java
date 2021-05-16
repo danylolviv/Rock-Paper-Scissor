@@ -110,7 +110,9 @@ public class MoveLogic {
 
     public void analyticalAI(){
         for (Result r: recentResult) {
+
             Move thisMove;
+
             if(r.getLoserPlayer().getPlayerType() == PlayerType.Human){
                 thisMove = r.getLoserMove();
                 switch (thisMove){

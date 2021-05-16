@@ -159,7 +159,7 @@ public class JavaFXApp extends Application {
             aiHighscore = aiHighscore+1;
         } else if(ge.getLastResult().getWinnerPlayer().getPlayerType() == PlayerType.Human){
             userHighscore = userHighscore+1;
-        } else if (ge.getLastResult().getWinnerMove()==ge.getLastResult().getLoserMove()){
+        } else if (ge.getLastResult().getWinnerMove()!=ge.getLastResult().getLoserMove()){
             aiHighscore = aiHighscore+0;
             userHighscore = userHighscore+0;
         }
